@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Workshop Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Workshop ML Model Dashboard</h1>
+            <p class="subtitle">Upload your dataset and get predictions from our trained model</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="card">
+                <h2>Upload Dataset</h2>
+                <p>Upload your dataset in CSV format for prediction</p>
+                
+                <div class="upload-area" id="dropZone">
+                    <div class="upload-icon">📁</div>
+                    <p>Drag & Drop your CSV file here</p>
+                    <p>or</p>
+                    <input type="file" id="fileInput" accept=".csv" style="display: none;">
+                    <button class="btn" onclick="document.getElementById('fileInput').click()">Select File</button>
+                </div>
+                
+                <div id="fileInfo"></div>
+                
+                <button class="btn" id="predictBtn" disabled>Get Predictions</button>
+                <div id="uploadStatus"></div>
+            </div>
+            
+            <div class="card">
+                <h2>Model Information</h2>
+                <div id="modelInfo">
+                    <p><strong>Status:</strong> <span id="modelStatus">Loading...</span></p>
+                    <p><strong>Model Type:</strong> <span id="modelType">-</span></p>
+                    <p><strong>Accuracy:</strong> <span id="modelAccuracy">-</span></p>
+                    <p><strong>Last Trained:</strong> <span id="modelLastTrained">-</span></p>
+                </div>
+            </div>
+            
+            <div class="card full-width">
+                <h2>Prediction Results</h2>
+                <div id="resultsPlaceholder">
+                    <p>Upload a dataset to see predictions here</p>
+                </div>
+                <div class="results" id="resultsContainer">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+            
+            <div class="card full-width">
+                <h2>API Testing</h2>
+                <div class="api-test">
+                    <button class="btn" id="testConnectionBtn">Test Backend Connection</button>
+                    <button class="btn" id="getModelInfoBtn">Get Model Info</button>
+                    <div id="apiTestResult"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="team-info">
+            <div>Backend Status: <span id="backendStatus">Not Connected</span></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
